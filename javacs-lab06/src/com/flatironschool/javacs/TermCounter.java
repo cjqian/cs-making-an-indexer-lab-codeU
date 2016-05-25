@@ -1,5 +1,8 @@
-package com.flatironschool.javacs;
+/* Making an Indexer Lab
+ * Crystal Qian
+ */
 
+package com.flatironschool.javacs; 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,8 +20,10 @@ import org.jsoup.select.Elements;
  *
  */
 public class TermCounter {
-	
+    //mapping from terms to counts	
 	private Map<String, Integer> map;
+
+    //identifies the document the terms came from, used to store URLs
 	private String label;
 	
 	public TermCounter(String label) {
@@ -36,8 +41,13 @@ public class TermCounter {
 	 * @return
 	 */
 	public int size() {
-        // TODO: fill this in.
-		return -1;
+        int sum = 0;
+
+        for (String key : map.keySet()){
+            sum += map.get(key);
+        }
+        
+        return sum;
 	}
 
 	/**
